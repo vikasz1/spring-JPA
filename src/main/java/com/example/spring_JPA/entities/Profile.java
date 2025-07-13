@@ -1,12 +1,15 @@
 package com.example.spring_JPA.entities;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import java.time.LocalDate;
 
 @Table(name = "profile")
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
+@ToString
 @Getter
 @Setter
 @Entity
@@ -23,4 +26,11 @@ public class Profile {
     private LocalDate dateOfBirth;
     @Column(name = "loyaltyPoints")
     private int loyaltyPoints;
+
+    @OneToOne
+    @JoinColumn(name = "id")
+    @MapsId
+    @ToString.Exclude
+    private User user;
+
 }
