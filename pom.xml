@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -28,6 +28,7 @@
 	</scm>
 	<properties>
 		<java.version>21</java.version>
+		<flyway.version>10.15.0</flyway.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -56,20 +57,50 @@
 		<dependency>
 			<artifactId>flyway-core</artifactId>
 			<groupId>org.flywaydb</groupId>
+			<version>${flyway.version}</version>
 		</dependency>
 		<dependency>
 			<artifactId>flyway-mysql</artifactId>
 			<groupId>org.flywaydb</groupId>
+			<version>${flyway.version}</version>
 		</dependency>
 		<dependency>
 			<artifactId>lombok</artifactId>
 			<groupId>org.projectlombok</groupId>
 			<scope>annotationProcessor</scope>
 		</dependency>
-
-
 	</dependencies>
 
+	<build>
+		<plugins>
+			<!-- Enhanced Flyway Maven Plugin Configuration -->
+			<plugin>
+				<groupId>org.flywaydb</groupId>
+				<artifactId>flyway-maven-plugin</artifactId>
+				<version>${flyway.version}</version>
+				<configuration>
+					<!-- Database Connection -->
+					<url>jdbc:mysql://localhost:3306/store?createDatabaseIfNotExist=true</url>
+					<user>vikas</user>
+					<password>yourpassword</password>
+					<driver>com.mysql.cj.jdbc.Driver</driver>
+					<cleanDisabled>false</cleanDisabled>
+				</configuration>
 
+				<!-- Add MySQL dependency to plugin -->
+				<dependencies>
+					<dependency>
+						<groupId>com.mysql</groupId>
+						<artifactId>mysql-connector-j</artifactId>
+						<version>8.0.33</version>
+					</dependency>
+				</dependencies>
+			</plugin>
 
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
 </project>
