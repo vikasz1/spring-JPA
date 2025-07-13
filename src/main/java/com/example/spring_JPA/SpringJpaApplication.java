@@ -1,5 +1,6 @@
 package com.example.spring_JPA;
 
+import com.example.spring_JPA.entities.Address;
 import com.example.spring_JPA.entities.User;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -18,5 +19,15 @@ public class SpringJpaApplication {
 				.email("vikas@google.com")
 				.build();
 		System.out.println(user.getEmail());
+		var address = Address.builder()
+				.street("stree")
+				.city("city")
+				.state("state")
+				.zip("zip").build();
+		user.addAddress(address);
+		System.out.println(user);
+		user.removeAddress(address);
+		System.out.println(user);
+
 	}
 }

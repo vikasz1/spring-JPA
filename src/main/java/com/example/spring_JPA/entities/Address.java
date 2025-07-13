@@ -1,12 +1,15 @@
 package com.example.spring_JPA.entities;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 @Table(name = "addresses")
 @Getter
 @Setter
+@ToString
 @Entity
 public class Address {
     @Id
@@ -21,4 +24,11 @@ public class Address {
     private String zip;
     @Column(name = "state")
     private String state;
+
+    @ManyToOne
+    @ToString.Exclude
+    @JoinColumn(name = "user_id")
+    private User user;
+
+
 }
