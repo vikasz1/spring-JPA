@@ -1,9 +1,6 @@
 package com.example.spring_JPA.entities;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -18,6 +15,7 @@ import java.util.Set;
 @Entity
 @Table(name = "categories")
 public class Category {
+    @Id
     @Column(name = "id")
     private Long id;
     @Column(name = "name")

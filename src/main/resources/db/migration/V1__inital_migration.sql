@@ -1,5 +1,5 @@
 
-CREATE TABLE store.`users` (
+CREATE TABLE `users` (
   `id` bigint NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
@@ -8,7 +8,7 @@ CREATE TABLE store.`users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 
-CREATE TABLE store.`addresses` (
+CREATE TABLE `addresses` (
   `id` bigint NOT NULL AUTO_INCREMENT,
   `street` varchar(255) NOT NULL,
   `city` varchar(255) NOT NULL,

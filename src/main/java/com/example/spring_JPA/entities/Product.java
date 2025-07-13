@@ -15,6 +15,9 @@ public class Product {
     @Column(name = "id")
     private Byte id;
 
+    @Column(name="description")
+    private String description;
+
     @Column(name="name")
     private String name;
 
