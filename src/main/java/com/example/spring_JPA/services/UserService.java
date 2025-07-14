@@ -1,6 +1,7 @@
 package com.example.spring_JPA.services;
 
 import com.example.spring_JPA.entities.User;
+import com.example.spring_JPA.repositories.ProfileRepository;
 import com.example.spring_JPA.repositories.UserRepository;
 import jakarta.persistence.EntityManager;
 import jakarta.transaction.Transactional;
@@ -14,6 +15,7 @@ import org.springframework.stereotype.Service;
 public class UserService    {
     private final UserRepository userRepository;
     private final EntityManager entityManager;
+    private final ProfileRepository profileRepository;
     @Transactional
     public void showEntityState(){
         var user = User.builder()
@@ -33,6 +35,11 @@ public class UserService    {
         else{
             System.out.println("Transient/Detatched");
         }
+    }
+    @Transactional
+    public void showRelateEntities(){
+        var profile = profileRepository.findById(2L).orElseThrow();
+        System.out.println(profile.getUser().getEmail());
     }
 
 }

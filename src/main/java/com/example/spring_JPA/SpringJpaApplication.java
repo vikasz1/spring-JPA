@@ -15,7 +15,7 @@ public class SpringJpaApplication {
 		ApplicationContext context = SpringApplication.run(SpringJpaApplication.class);
 		var service = context.getBean(UserService.class);
 
-		service.showEntityState();
+		service.showRelateEntities();
 //		var user = new User(1L,"vikasz1","vikas@google.com","hello world");
 //		System.out.println(user.getEmail());
 //		Create a complex object from a Lombok annotated class with @Builder
