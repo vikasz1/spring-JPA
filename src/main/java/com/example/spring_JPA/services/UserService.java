@@ -1,5 +1,6 @@
 package com.example.spring_JPA.services;
 
+import com.example.spring_JPA.entities.Address;
 import com.example.spring_JPA.entities.User;
 import com.example.spring_JPA.repositories.AddressRepository;
 import com.example.spring_JPA.repositories.ProfileRepository;
@@ -50,4 +51,21 @@ public class UserService    {
         System.out.println(address);
     }
 
+    public void persistRelated(){
+        var user = User.builder()
+                .name("vikas")
+                .email("vikas@optum.com")
+                .password("password")
+                .build();
+        var address = Address.builder()
+                .street("Street")
+                .city("Ghazipur")
+                .state("UP")
+                .zip("233322")
+                .build();
+
+        user.addAddress(address);
+        userRepository.save(user);
+
+    }
 }
