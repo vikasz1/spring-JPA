@@ -8,6 +8,7 @@ public class SpringJpaApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(SpringJpaApplication.class, args);
+
 //		var user = new User(1L,"vikasz1","vikas@google.com","hello world");
 //		System.out.println(user.getEmail());
 //		Create a complex object from a Lombok annotated class with @Builder
