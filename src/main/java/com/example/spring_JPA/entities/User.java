@@ -22,7 +22,7 @@ public class User {
     @Column(name = "id")
     private Long id;
     @Column(name = "name")
-    private String username;
+    private String name;
     @Column(name="email")
     private String email;
     @Column(name = "password")
@@ -66,7 +66,7 @@ public class User {
 
     @ManyToMany
     @JoinTable(
-            name = "wishist",
+            name = "wishlist",
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "product_id")
     )

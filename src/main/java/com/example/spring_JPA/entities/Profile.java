@@ -5,7 +5,7 @@ import lombok.*;
 
 import java.time.LocalDate;
 
-@Table(name = "profile")
+@Table(name = "profiles")
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
