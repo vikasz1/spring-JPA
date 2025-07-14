@@ -1,6 +1,7 @@
 package com.example.spring_JPA.services;
 
 import com.example.spring_JPA.entities.User;
+import com.example.spring_JPA.repositories.AddressRepository;
 import com.example.spring_JPA.repositories.ProfileRepository;
 import com.example.spring_JPA.repositories.UserRepository;
 import jakarta.persistence.EntityManager;
@@ -16,6 +17,8 @@ public class UserService    {
     private final UserRepository userRepository;
     private final EntityManager entityManager;
     private final ProfileRepository profileRepository;
+    private final AddressRepository addressRepository;
+
     @Transactional
     public void showEntityState(){
         var user = User.builder()
@@ -40,6 +43,11 @@ public class UserService    {
     public void showRelateEntities(){
         var profile = profileRepository.findById(2L).orElseThrow();
         System.out.println(profile.getUser().getEmail());
+    }
+
+    public void fetchAddress(){
+        var address = addressRepository.findById(1L).orElseThrow();
+        System.out.println(address);
     }
 
 }

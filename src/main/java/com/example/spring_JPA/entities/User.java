@@ -64,7 +64,7 @@ public class User {
     @OneToOne(mappedBy = "user")
     private Profile profile;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(
             name = "wishlist",
             joinColumns = @JoinColumn(name = "user_id"),
