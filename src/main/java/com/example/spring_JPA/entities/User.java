@@ -52,7 +52,9 @@ public class User {
         tags.remove(tag);
         tag.getUsers().add(this);
     }
-
+    public void addFavouriteProduct(Product product){
+        wishLists.add(product);
+    }
     @ManyToMany
     @JoinTable(
             name = "user_tags",

@@ -13,9 +13,9 @@ public class SpringJpaApplication {
 	public static void main(String[] args) {
 //		SpringApplication.run(SpringJpaApplication.class, args);
 		ApplicationContext context = SpringApplication.run(SpringJpaApplication.class);
-		var service = context.getBean(UserService.class);
+		var user = context.getBean(UserService.class);
+		user.manageProducts();
 
-		service.deleteRelated();
 //		var user = new User(1L,"vikasz1","vikas@google.com","hello world");
 //		System.out.println(user.getEmail());
 //		Create a complex object from a Lombok annotated class with @Builder
